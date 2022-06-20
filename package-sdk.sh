@@ -38,22 +38,15 @@ mkdir -p $package_name/plugins/schema
 cp neuron.conf ${package_name}/
 cp cmake/neuron-config.cmake ${package_name}/
 cp -r include/* ${package_name}/include/
-
-cp build/neuron ${package_name}
 cp build/libneuron-base.so ${package_name}/lib
+cp -r ft/Keyword ${package_name}/ft/
+cp ft/api_http.resource ${package_name}/ft/
+cp ft/api_mqtt.resource ${package_name}/ft/
+cp ft/common.resource ${package_name}/ft/
+cp ft/error.resource ${package_name}/ft/
+cp ft/requirements.txt ${package_name}/ft/
+
 cp zlog/src/libzlog.so.1.2 ${package_name}/lib
-
-cp zlog.conf ${package_name}/config/
-cp neuron.key ${package_name}/config/
-cp neuron.pem ${package_name}/config/
-
-cp build/plugins/schema/ekuiper.json \
-    build/plugins/schema/mqtt.json \
-    ${package_name}/plugins/schema/
-
-cp build/plugins/libplugin-ekuiper.so \
-    build/plugins/libplugin-mqtt.so \
-    ${package_name}/plugins/
 
 tar czf ${package_name}-${arch}.tar.gz ${package_name}/
 ls ${package_name}
